@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Quiz App</string>
+    <string name="enter_details">Enter Details</string>
+    <string name="name">Name</string>
+    <string name="categories">Categories</string>
+    <string name="difficulty">Difficulty</string>
+    <string name="enter">Enter</string>
+    <string name="blank" />
+    <string name="quiz_time">Quiz Time</string>
+    <string name="enter_details_des">Enter your name then choose your \ncategory and set the difficulty level !!</string>
+    <string name="congratulations">Congratulation %s</string>
+    <string name="finish_description">You just complete your quiz !!</string>
+    <string name="your_score">and your score is %s / 10</string>
+    <string name="play_again">Play Again</string>
 </resources>

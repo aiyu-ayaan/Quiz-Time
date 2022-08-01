@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="MainColor">#1a1c19</color>
+    <color name="bottom_nav">#2d3229</color>
+    <color name="blue_bottom_nav">#3c4b37</color>
+    <color name="accent_color">#a0d490</color>
+</resources>

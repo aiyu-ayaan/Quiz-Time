@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginHorizontal="@dimen/grid_1"
+    android:background="?attr/colorSurface"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="@dimen/grid_1"
+    tools:context="com.atech.quizapp.ui.fragment.final_score.FinalScoreFragment">
+
+    <ImageView
+        android:layout_width="@dimen/image_size"
+        android:layout_height="@dimen/image_size"
+        android:layout_gravity="center"
+        android:contentDescription="@string/blank"
+        android:src="@drawable/ic_quiz_completed" />
+
+    <TextView
+        android:id="@+id/text_view_congratulations"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/grid_1"
+        android:text="@string/congratulations"
+        android:textAppearance="?attr/textAppearanceHeadlineLarge"
+        tools:text="Congratulations Ayaan" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/grid_1"
+        android:gravity="start"
+        android:text="@string/finish_description"
+        android:textAppearance="?attr/textAppearanceBodyMedium"
+        tools:text="@string/finish_description" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:text="@string/your_score"
+        android:textAppearance="?attr/textAppearanceBodyMedium"
+        tools:text="and your score is 10/10 !!" />
+
+    <Button
+        android:id="@+id/button_play_again"
+        style="@style/Widget.Material3.Button.TextButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/grid_1"
+        android:padding="@dimen/grid_2"
+        android:text="@string/play_again" />
+</LinearLayout>

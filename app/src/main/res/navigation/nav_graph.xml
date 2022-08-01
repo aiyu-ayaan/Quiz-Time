@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/finalScoreFragment">
+
+    <fragment
+        android:id="@+id/chooseDifficultyFragment"
+        android:name="com.atech.quizapp.ui.fragment.choose_difficulty.EnterDetailFragment"
+        android:label="@string/enter_details"
+        tools:layout="@layout/fragment_enter_detail" />
+    <fragment
+        android:id="@+id/finalScoreFragment"
+        android:name="com.atech.quizapp.ui.fragment.final_score.FinalScoreFragment"
+        android:label="fragment_final_score"
+        tools:layout="@layout/fragment_final_score" />
+</navigation>

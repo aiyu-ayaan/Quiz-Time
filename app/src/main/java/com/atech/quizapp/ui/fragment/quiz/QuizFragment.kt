@@ -16,6 +16,8 @@ import com.atech.quizapp.databinding.FragmentQuizBinding
 import com.atech.quizapp.ui.main_activity.CommunicatorViewModel
 import com.atech.quizapp.utils.DataState
 import com.atech.quizapp.utils.category_list
+import com.atech.quizapp.utils.handleCustomBackPressed
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.transition.MaterialSharedAxis
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -44,6 +46,26 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
             )
             getData()
         }
+        customBackPressed()
+    }
+
+    private fun customBackPressed() {
+        handleCustomBackPressed {
+            makeDialog()
+        }
+    }
+
+    private fun makeDialog() {
+        val dialog = MaterialAlertDialogBuilder(requireContext())
+        dialog.setTitle("Warning")
+        dialog.setMessage("Are you sure you want to leave the quiz?")
+        dialog.setPositiveButton("Yes") { _, _ ->
+            findNavController().popBackStack()
+        }
+        dialog.setNegativeButton("No") { _, _ ->
+            // do nothing
+        }
+        dialog.show()
     }
 
 
@@ -67,8 +89,6 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
                 }
                 is DataState.Success -> {
                     binding.apply {
-                        textViewQuestion.isVisible = true
-                        textViewType.isVisible = true
                         pager.isVisible = true
                         progressIndicatorLoading.isVisible = false
                     }
@@ -90,7 +110,8 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
 
     private fun getFragment(data: List<Result>): List<Fragment> =
         data.mapIndexed { index, i ->
-            ViewPagerQuestionFragment(i, index + 1).also { it ->
+            ViewPagerQuestionFragment().also { it ->
+                it.setResultAndQuestionNumber(i, index + 1)
                 it.setCheckAnswerListener {
                     checkAnswer()
                 }

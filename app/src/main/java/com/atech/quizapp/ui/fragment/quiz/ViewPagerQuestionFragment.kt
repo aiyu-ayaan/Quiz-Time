@@ -13,12 +13,11 @@ import com.atech.quizapp.databinding.FragmentQuestionQuizBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class ViewPagerQuestionFragment(
-    private val result: Result,
-    private val questionNumber: Int,
-) : Fragment(R.layout.fragment_question_quiz) {
+class ViewPagerQuestionFragment() : Fragment(R.layout.fragment_question_quiz) {
     private val TAG = "FragmentQuestion"
 
+    private var result: Result? = null
+    private var questionNumber: Int? = null
     private val binding: FragmentQuestionQuizBinding by viewBinding()
 
     private var answer = ""
@@ -34,10 +33,18 @@ class ViewPagerQuestionFragment(
         this.correctListener = listener
     }
 
+    fun setResultAndQuestionNumber(result: Result, questionNumber: Int) {
+        this.result = result
+        this.questionNumber = questionNumber
+    }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        bind(result = result)
+        result?.let {
+            bind(result = it)
+        }
+
     }
 
     private fun bind(result: Result) {
@@ -76,7 +83,7 @@ class ViewPagerQuestionFragment(
     }
 
     private fun checkAnswer() {
-        if (answer == result.correct_answer) {
+        if (answer == result!!.correct_answer) {
             correctListener?.invoke()
         }
     }

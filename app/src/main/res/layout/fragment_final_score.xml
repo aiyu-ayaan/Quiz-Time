@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -22,26 +23,48 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/grid_1"
+        android:gravity="center"
         android:text="@string/congratulations"
         android:textAppearance="?attr/textAppearanceHeadlineLarge"
         tools:text="Congratulations Ayaan" />
 
-    <TextView
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/grid_1"
-        android:gravity="start"
-        android:text="@string/finish_description"
-        android:textAppearance="?attr/textAppearanceBodyMedium"
-        tools:text="@string/finish_description" />
+        android:padding="@dimen/grid_1">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="start"
-        android:text="@string/your_score"
-        android:textAppearance="?attr/textAppearanceBodyMedium"
-        tools:text="and your score is 10/10 !!" />
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/progress_indicator_percentage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:progress="20"
+            app:trackColor="?attr/colorSecondaryContainer"
+            app:showDelay="1000"
+            app:trackThickness="40dp" />
+
+        <TextView
+            android:id="@+id/text_view_score_des"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_toEndOf="@+id/progress_indicator_percentage"
+            android:padding="@dimen/grid_1"
+            android:text="@string/score_des"
+            android:textAppearance="?attr/textAppearanceHeadline5" />
+
+        <TextView
+            android:id="@+id/text_view_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_view_score_des"
+            android:layout_alignParentEnd="true"
+            android:layout_toEndOf="@+id/progress_indicator_percentage"
+            android:padding="@dimen/grid_1"
+            android:text="@string/score"
+            android:textAppearance="?attr/textAppearanceHeadline5" />
+    </RelativeLayout>
+
 
     <Button
         android:id="@+id/button_play_again"

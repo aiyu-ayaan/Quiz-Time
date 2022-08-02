@@ -9,14 +9,17 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class ResultRepository @Inject constructor(
+class QuizRepository @Inject constructor(
     private val quizApi: QuizApi
 ) {
 
-    fun getQuiz(difficulty: String): Flow<DataState<List<Result>>> = flow {
+    fun getQuiz(
+        category: Int,
+        difficulty: String
+    ): Flow<DataState<List<Result>>> = flow {
         emit(DataState.Loading)
         try {
-            val result = quizApi.getData(difficulty)
+            val result = quizApi.getData(difficulty, category)
             emit(DataState.Success(result.results))
         } catch (e: Exception) {
             emit(DataState.Error(e))

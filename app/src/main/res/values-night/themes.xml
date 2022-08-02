@@ -14,5 +14,7 @@
 
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorSurface</item>
+
     </style>
+
 </resources>

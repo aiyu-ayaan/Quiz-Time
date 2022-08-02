@@ -5,6 +5,7 @@ import android.view.View
 import android.viewbinding.library.fragment.viewBinding
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.atech.quizapp.R
 import com.atech.quizapp.databinding.FragmentEnterDetailBinding
 import com.atech.quizapp.ui.main_activity.CommunicatorViewModel
@@ -12,6 +13,7 @@ import com.atech.quizapp.utils.Difficulty
 import com.atech.quizapp.utils.UserDetail
 import com.atech.quizapp.utils.category_list
 import com.google.android.material.textfield.MaterialAutoCompleteTextView
+import com.google.android.material.transition.MaterialSharedAxis
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -50,6 +52,14 @@ class EnterDetailFragment : Fragment(R.layout.fragment_enter_detail) {
             binding.outlinedTextFieldDifficulty.error = null
         val categoryId = getCategoryId(category)
         communicatorViewModel.userDetail = UserDetail(name, categoryId, difficulty)
+        navigateToQuiz()
+    }
+
+    private fun navigateToQuiz() {
+        exitTransition = MaterialSharedAxis(MaterialSharedAxis.X, /* forward= */ true)
+        reenterTransition = MaterialSharedAxis(MaterialSharedAxis.X, /* forward= */ false)
+        val action = EnterDetailFragmentDirections.actionEnterDetailFragmentToQuizFragment()
+        findNavController().navigate(action)
     }
 
     private fun getCategoryId(category: String): Int =

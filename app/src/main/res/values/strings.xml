@@ -9,7 +9,14 @@
     <string name="quiz_time">Quiz Time</string>
     <string name="enter_details_des">Enter your name then choose your \ncategory and set the difficulty level !!</string>
     <string name="congratulations">Congratulation %s</string>
-    <string name="finish_description">You just complete your quiz !!</string>
+    <string name="finish_description">You just complete your quiz </string>
     <string name="your_score">and your score is %s / 10</string>
     <string name="play_again">Play Again</string>
+    <string name="sno_question">Q%s. %s </string>
+    <string name="quit_time">Quit Time</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="question_description">Here are the question related to %s !!!</string>
+    <string name="score_des">You Just Score</string>
+    <string name="score">%s / 10</string>
 </resources>

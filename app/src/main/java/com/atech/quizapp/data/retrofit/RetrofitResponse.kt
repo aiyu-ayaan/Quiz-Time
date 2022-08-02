@@ -2,6 +2,7 @@ package com.atech.quizapp.data.retrofit
 
 import androidx.annotation.Keep
 
+@Keep
 data class RetrofitResponse(
     val results: List<Result>
 )
@@ -14,5 +15,7 @@ data class Result(
     val question: String,
     val correct_answer: String,
     val incorrect_answers: List<String>
-)
+) {
+
+}
 
